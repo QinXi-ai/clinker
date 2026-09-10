@@ -1173,7 +1173,7 @@ impl InjectedDelivery {
     }
 
     fn outcome_result(mode: Option<&str>, item_count: u64) -> DeliveryResult {
-        let (accepted, rejected, attempts, failed, outcome) = match mode.as_deref() {
+        let (accepted, rejected, attempts, failed, outcome) = match mode {
             None | Some("success") => (1, 0, 1, false, None),
             Some("partial") => (0, 1, 1, false, Some("partial")),
             Some("transient-exhausted") => {
